@@ -1,0 +1,102 @@
+/* elements */
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* size */
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.m0 {
+  margin: 0px;
+}
+
+/* font size */
+* { font-size: 1rem; }
+@media (max-width:360px){html{font-size:15px;}}
+@media (min-width:460px) and (max-width:559px){html{font-size:16px;}}
+@media (min-width:560px) and (max-width:659px){html{font-size:17px;}}
+@media (min-width:660px) and (max-width:759px){html{font-size:18px;}}
+@media (min-width:760px) and (max-width:859px){html{font-size:19px;}}
+@media (min-width:860px){html{font-size:20px;}}
+
+/* color */
+.lightsky {
+  color: #9cdcfa !important; 
+}
+.sky {
+  color: #60c5f6 !important; 
+}
+.blue {
+  color: #00a2f2 !important; 
+}
+.white {
+  color: #f8f8f7 !important; 
+}
+.lightgray {
+  color: #ddd !important; 
+}
+.gray {
+  color: #888 !important; 
+}
+.darkgray {
+  color: #51514f !important; 
+}
+.black {
+  color: #000000 !important; 
+}
+
+/* background color */
+.bg-lightsky {
+  background-color: #9cdcfa !important; 
+}
+.bg-sky {
+  background-color: #60c5f6 !important; 
+}
+.bg-blue {
+  background-color: #00a2f2 !important; 
+}
+.bg-white {
+  background-color: #f8f8f7 !important; 
+}
+.bg-lightgray {
+  background-color: #ddd !important; 
+}
+.bg-gray {
+  background-color: #888 !important; 
+}
+.bg-darkgray {
+  background-color: #51514f !important; 
+}
+.bg-black {
+  background-color: #000000 !important; 
+}
+
+/* after color */
+.after-lightsky:after {
+  background-color: #9cdcfa !important; 
+}
+.after-sky:after {
+  background-color: #60c5f6 !important; 
+}
+.after-blue:after {
+  background-color: #00a2f2 !important; 
+}
+.after-white:after {
+  background-color: #f8f8f7 !important; 
+}
+.after-lightgray:after {
+  background-color: #ddd !important; 
+}
+.after-gray:after {
+  background-color: #888 !important; 
+}
+.after-darkgray:after {
+  background-color: #51514f !important; 
+}
+.after-black:after {
+  background-color: #000000 !important; 
+}

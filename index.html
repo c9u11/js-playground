@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Todo Calendar</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body class="bg-white w100 h100 m0">
+
+  <div id="header" class="">
+  </div> 
+
+  <div id="content">
+    <div id="calendar">
+      <div class="month">      
+        <ul>
+          <li class="prev">&#10094;</li>
+          <li class="next">&#10095;</li>
+          <li>
+            <span id="month"></span>
+            <br>
+            <span id="year"></span>
+          </li>
+        </ul>
+      </div>
+      <ul id="weekdays"></ul>
+      <ul id="days"></ul>
+    </div>
+    <div id="task">
+      <div id="taskHeader">
+        Task
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/ical.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+
+</html>

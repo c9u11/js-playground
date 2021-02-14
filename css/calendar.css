@@ -1,0 +1,147 @@
+/* Content, Calendar, Task Size 반응형 */
+@media (min-width:721px){
+  #content {
+    display: flex;
+  }
+  #calendar {
+    width: 66vw;
+    max-width: 860px;
+  }
+  #task {
+    flex-grow: 1;
+    border-left: #ddd 2px solid;
+  }
+}
+@media (max-width:720px){
+  #content {
+    display: inline-block;
+  }
+  #calendar {
+    width: 100vw;
+    min-width: 360px;
+  }
+  #task {
+    width: 100vw;
+    border-top: #ddd 2px solid;
+  }
+}
+#calendar,
+#task {
+  display: inline-block;
+}
+#calendar {
+  user-select: none;
+}
+
+/* Month */
+.month {
+  padding: 25px 25px;
+  width: 100%;
+  text-align: center;
+  border-bottom: #ddd 2px solid;
+}
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+.month ul li {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0px 10px;
+}
+.month .prev {
+  float: left;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.month .next {
+  float: right;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.month #month {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.month #year {
+  font-size: 0.9rem;
+}
+
+/* Week */
+#weekdays {
+  display: flex;
+  margin: 0;
+  padding: 20px 0px;
+}
+#weekdays li {
+  display: inline-block;
+  width: 14%;
+  font-size: 1rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Day */
+#days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  margin: 0;
+}
+#days li {
+  position: relative;
+  list-style-type: none;
+  display: inline-block;
+  min-width: 14%;
+  text-align: center;
+  font-size:1rem;
+  padding: 20px 0px;
+  color: #888;
+  cursor: pointer;
+}
+/* #days li:before{
+  content: " ";
+  position: absolute;
+  top: 0px;
+  right: 30%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+} */
+#days li span {
+  position: relative;
+}
+#days li .weekend {
+  color: rgb(255, 74, 74);
+}
+#days li .diff {
+  opacity: 0.5;
+}
+#days li .selected{
+  color: white !important;
+}
+#days li .selected:after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 50%;
+}
+#days li .selected.weekend:after{
+  background-color: rgba(255, 74, 74, 0.5) !important;
+}
+
+/* Task Header */
+#taskHeader {
+  padding: 25px 25px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}

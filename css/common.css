@@ -1,7 +1,10 @@
 /* elements */
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0px;
+}
 
 /* size */
 .w100 {
@@ -22,6 +25,14 @@ body {font-family: Verdana, sans-serif;}
 @media (min-width:660px) and (max-width:759px){html{font-size:18px;}}
 @media (min-width:760px) and (max-width:859px){html{font-size:19px;}}
 @media (min-width:860px){html{font-size:20px;}}
+
+/* text align */
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
 
 /* color */
 .lightsky {

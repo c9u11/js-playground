@@ -1,0 +1,164 @@
+/* 기본 설정 */
+a {
+	font-size: 14px;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  color: #1b3815;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-size: 14px;
+	color: #666666;
+	margin: 0px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+/* link */
+.find-info{
+  padding: 13px 0px 23px 0px;
+}
+.sign-up{
+  padding: 50px 0px 40px 0px;
+}
+span {
+  font-size: 15px;
+  color: #999999;
+}
+
+a {
+  font-size: 15px;
+  color: #57b846;
+}
+
+/* Wrapper */
+.flex-box {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+  background-color: #fff;
+}
+
+.login-box {
+  width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Form */
+.login-form {
+  width: 100%;
+  position: relative;
+  padding: 178px 55px 0px 55px;
+}
+
+.login-form-title {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #57b846;
+  padding-top: 50px;
+  padding-bottom: 39px;
+}
+
+/* input */
+
+.input-wrap {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 27px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.input-wrap input {
+  font-size: 15px;
+  color: #1b3815;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 55px;
+  background: #ebebeb;
+  border-radius: 27px;
+  padding: 0 35px 0 35px;
+}
+
+/* button */
+.login-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+
+  transition: all 0.4s;
+}
+
+.login-btn:hover {
+  background-color: #1b3815;
+}

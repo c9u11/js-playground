@@ -138,10 +138,76 @@
 
 /* Task Header */
 #taskHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   padding: 25px 25px;
   width: 100%;
+  height: 6.2rem;
   text-align: center;
-  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 3px;
+  vertical-align: middle;
+}
+#taskHeader>span:first-child {
+  font-size: 1.5rem;
+}
+/* Task state */
+#taskState{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0.5rem;
+  padding: 0.1rem 0.8rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#taskState span{
+  font-size: 0.7rem;
+  color: rgb(24, 24, 24);
+}
+.past-state:before,
+.todo-state:before,
+.done-state:before{
+  content: " ";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-right: 3px;
+  /* border: 1px black solid; */
+}
+.past-state:before{
+  background-color: rgb(221, 106, 106);
+}
+
+.todo-state:before{
+  background-color: rgb(120, 199, 82);
+}
+
+.done-state:before{
+  background-color: rgb(192, 189, 209);
+}
+
+/* Tasks */
+#taskList {
+  /* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+}
+#taskList div {
+  display: flex;
+  position: relative;
+  margin: 10px;
+  align-items: center;
+}
+#taskList div input[type="text"]{
+  flex-grow: 1;
+  margin-left: 10px;
+  border: none;
+  background: none;
+}
+#taskList div.checked input[type="text"]{
+  text-decoration: line-through;
 }

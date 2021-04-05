@@ -2,7 +2,7 @@
 var currentDate = new Date();
 currentDate.setHours(0,0,0,0);
 var settingDay = 0;
-var settingColor = "sky";
+var settingColor = "blue";
 var COLORS = ['lightsky','sky','blue','lightgray','gray','darkgray','white','black'];
 var calendarList = {
   "Google" : "../simple.ics",
@@ -99,14 +99,15 @@ document.getElementsByClassName("month")[0].onclick = function(event){
 document.getElementById("days").onclick = function(event){
   var target = event.target.children[0] || event.target;
   var selectedElement = document.getElementsByClassName("selected")[0];
-  if(selectedElement == target) return
-  if(selectedElement){
+  // if(selectedElement == target) return
+  if(selectedElement != target && selectedElement){
     selectedElement.classList.remove("selected");
     selectedElement.classList.remove(`after-${settingColor}`);
   }
   target.classList.add("selected");
   selectedDate = new Date(target.getAttribute("value") * 1);
   refreshColor();
+  addTask("");
 };
 
 // Function
@@ -178,13 +179,14 @@ function refreshColor(color = settingColor){
   var $calHeader = document.getElementsByClassName("month")[0];
   var $today = document.getElementsByClassName("today")[0];
   var $selected = document.getElementsByClassName("selected")[0];
-  var $task = document.getElementById("task");
+  var $taskHeader = document.getElementById("taskHeader");
 
   // Set Color
   if($calHeader) setColor($calHeader);
   if($today) setColor($today);
   if($selected) setAfterColor($selected);
-  if($task) setColor($task);
+  if($taskHeader) setBgColor($taskHeader);
+  
 
   function setColor(element){
     COLORS.forEach(function(value){ element.classList.remove(value); });
@@ -225,4 +227,23 @@ function getTasks(date = selectedDate){
       }
     })
   }
+}
+function addTask(title=""){
+  var $taskList = document.getElementById("taskList");
+  var index = $taskList.childElementCount;
+  var $task = document.createElement("div");
+  $task.setAttribute("index",index);
+  $task.innerHTML = `<input type="checkbox"><input type="text" name="title" placeholder="">`;
+  $taskList.appendChild($task);
+  $task.children[0].addEventListener("click",function(){
+    if(this.checked) this.parentElement.classList.add("checked");
+    else this.parentElement.classList.remove("checked");
+  });
+  $task.children[1].addEventListener("change",function(){
+    calendarAPI("put",title);
+  },{once:true});
+  $task.children[1].focus();
+}
+function calendarAPI(method,data){
+  console.log(method, data);
 }

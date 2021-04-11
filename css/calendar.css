@@ -1,5 +1,5 @@
 /* Content, Calendar, Task Size 반응형 */
-@media (min-width:721px){
+@media (min-width: 721px) {
   #content {
     display: flex;
   }
@@ -10,9 +10,10 @@
   #task {
     flex-grow: 1;
     border-left: #ddd 2px solid;
+    min-width: 33vw;
   }
 }
-@media (max-width:720px){
+@media (max-width: 720px) {
   #content {
     display: inline-block;
   }
@@ -95,7 +96,7 @@
   display: inline-block;
   min-width: 14%;
   text-align: center;
-  font-size:1rem;
+  font-size: 1rem;
   padding: 20px 0px;
   color: #888;
   cursor: pointer;
@@ -119,10 +120,13 @@
 #days li .diff {
   opacity: 0.5;
 }
-#days li .selected{
+#days li .today {
+  font-weight: bold;
+}
+#days li .selected {
   color: white !important;
 }
-#days li .selected:after{
+#days li .selected:after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -132,7 +136,7 @@
   padding: 20px;
   border-radius: 50%;
 }
-#days li .selected.weekend:after{
+#days li .selected.weekend:after {
   background-color: rgba(255, 74, 74, 0.5) !important;
 }
 
@@ -150,11 +154,11 @@
   letter-spacing: 3px;
   vertical-align: middle;
 }
-#taskHeader>span:first-child {
+#taskHeader > span:first-child {
   font-size: 1.5rem;
 }
 /* Task state */
-#taskState{
+#taskState {
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -163,13 +167,13 @@
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.6);
 }
-#taskState span{
+#taskState span {
   font-size: 0.7rem;
   color: rgb(24, 24, 24);
 }
 .past-state:before,
 .todo-state:before,
-.done-state:before{
+.done-state:before {
   content: " ";
   display: inline-block;
   width: 0.5rem;
@@ -178,15 +182,15 @@
   margin-right: 3px;
   /* border: 1px black solid; */
 }
-.past-state:before{
+.past-state:before {
   background-color: rgb(221, 106, 106);
 }
 
-.todo-state:before{
+.todo-state:before {
   background-color: rgb(120, 199, 82);
 }
 
-.done-state:before{
+.done-state:before {
   background-color: rgb(192, 189, 209);
 }
 
@@ -199,15 +203,27 @@
 #taskList div {
   display: flex;
   position: relative;
-  margin: 10px;
-  align-items: center;
+  margin: 0.5rem;
+  margin-right: 0px;
+  align-items: stretch;
 }
-#taskList div input[type="text"]{
+#taskList div input[type="text"] {
   flex-grow: 1;
-  margin-left: 10px;
+  margin: 0px 10px;
   border: none;
   background: none;
 }
-#taskList div.checked input[type="text"]{
+#taskList div.checked input[type="text"] {
   text-decoration: line-through;
+}
+#taskList div div.rm_btn {
+  display: flex;
+  width: 0px;
+  margin: 0px;
+  transition: width 0.3s;
+}
+#taskList div:hover div.rm_btn {
+  width: 1.5rem;
+  background-color: red;
+  opacity: 0.6;
 }

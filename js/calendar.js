@@ -1,15 +1,13 @@
+"use strict";
+
 // Variable
 var currentDate = new Date();
 currentDate.setHours(0,0,0,0);
 var settingDay = 0;
 var settingColor = "blue";
 var COLORS = ['lightsky','sky','blue','lightgray','gray','darkgray','white','black'];
-var calendarList = {
-  "Google" : "../simple.ics",
-  "Default" : "../sample.ics",
-};
-var ICS = {};
 var selectedDate = currentDate;
+var taskList = {};
 
 // prototype
 Number.prototype.toMonth = function () {
@@ -78,7 +76,6 @@ Date.prototype.toYYYYMMDDHHMISS = function(){
 
 // Init
 refreshCalendar();
-refreshTask();
 
 // Event
 document.getElementsByClassName("month")[0].onclick = function(event){
@@ -86,12 +83,14 @@ document.getElementsByClassName("month")[0].onclick = function(event){
   switch(target){
     case "prev":
       currentMonth = currentDate.getMonth();
-      currentDate.setMonth(currentMonth-1)
+      currentDate.setDate(1);
+      currentDate.setMonth(currentMonth-1);
       refreshCalendar();
       break;
     case "next":
       currentMonth = currentDate.getMonth();
-      currentDate.setMonth(currentMonth+1)
+      currentDate.setDate(1);
+      currentDate.setMonth(currentMonth+1);
       refreshCalendar();
       break;
   }
@@ -107,7 +106,7 @@ document.getElementById("days").onclick = function(event){
   target.classList.add("selected");
   selectedDate = new Date(target.getAttribute("value") * 1);
   refreshColor();
-  addTask("");
+  addTask();
 };
 
 // Function
@@ -201,47 +200,47 @@ function refreshColor(color = settingColor){
     element.classList.add(`after-${color}`);
   }
 }
-function refreshTask(list = calendarList){
-  for(let site in list){
-    new Promise(function(){
-      ICS[site] = new ical_parser(list[site]);
-      console.log(list[site]);
-    })
-  }
-  console.log(ICS);
-  function sleep(ms) {
-    const wakeUpTime = Date.now() + ms
-    while (Date.now() < wakeUpTime) {}
-  }
-}
-function getTasks(date = selectedDate){
-  for(var key in ICS){
-    ICS[key].events.forEach(function(data){
-      var start = data.DTSTART.getTime();
-      var end = data.DTEND.getTime();
-      if(start <= date && date <= end){
-        console.log(data);
-      }
-      else{
-        console.log(false);
-      }
-    })
-  }
-}
-function addTask(title=""){
+
+function addTask(value="", state=""){
+  var index = new Date().getTime();
   var $taskList = document.getElementById("taskList");
-  var index = $taskList.childElementCount;
+
   var $task = document.createElement("div");
-  $task.setAttribute("index",index);
-  $task.innerHTML = `<input type="checkbox"><input type="text" name="title" placeholder="">`;
+  $task.setAttribute("index",selectedDate.getTime());
+  if(state === ""){
+    if(selectedDate.getTime() < (new Date).getTime()){
+      state = "past";
+    } 
+    else {
+      state = "todo";
+    }
+  }
+  
+  taskList[selectedDate.getTime()] = taskList[selectedDate.getTime()] || {};
+
+  taskList[selectedDate.getTime()][index] = {
+    startDate : selectedDate.toYYYYMMDDHHMISS(),
+    endDate : selectedDate.toYYYYMMDDHHMISS(),
+    state : state,
+    title : value
+  }
+  
+  $task.innerHTML = `<input type="checkbox"><input type="text" value="${value}" state="${state}" index="${index}" placeholder=""><div class="rm_btn"></div>`;
   $taskList.appendChild($task);
   $task.children[0].addEventListener("click",function(){
     if(this.checked) this.parentElement.classList.add("checked");
     else this.parentElement.classList.remove("checked");
   });
-  $task.children[1].addEventListener("change",function(){
-    calendarAPI("put",title);
-  },{once:true});
+  $task.children[1].addEventListener("blur",function(){
+    if(this.value == null || this.value == ""){
+      $task.remove();
+      // taskList[this.parentElement.getAttribute("index")][this.getAttribute("index")]
+      // 없으면 지워야함
+    }
+    
+    taskList[this.parentElement.getAttribute("index")][this.getAttribute("index")].title = this.value;
+    // calendarAPI("put",value);
+  })
   $task.children[1].focus();
 }
 function calendarAPI(method,data){

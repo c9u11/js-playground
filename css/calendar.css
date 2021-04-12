@@ -26,7 +26,7 @@
     border-top: #ddd 2px solid;
   }
 }
-#calendar{
+#calendar {
   display: inline-block;
 }
 #calendar {
@@ -41,6 +41,17 @@
 /* header */
 #header {
   height: 30px;
+}
+
+#logout {
+  cursor: pointer;
+  float: right;
+  border: none;
+  height: 100%;
+  font-size: 0.7rem;
+  transition: all 0.3s;
+  color: black;
+  background-color: white;
 }
 
 /* Month */
@@ -62,7 +73,7 @@
   letter-spacing: 3px;
   padding: 0px 10px;
 }
-.month .info  {
+.month .info {
   flex-grow: 1;
 }
 .month .prev,
@@ -114,16 +125,6 @@
   color: #888;
   cursor: pointer;
 }
-/* #days li:before{
-  content: " ";
-  position: absolute;
-  top: 0px;
-  right: 30%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: red;
-} */
 #days li span {
   position: relative;
 }
@@ -219,7 +220,7 @@
   flex-direction: column;
   flex-grow: 1;
 }
-#taskList>div {
+#taskList > div {
   display: flex;
   position: relative;
   margin: 0.3rem;
@@ -227,7 +228,7 @@
   align-items: stretch;
   border-bottom: 1px #ddd solid;
 }
-#taskList>div>div:first-child{
+#taskList > div > div:first-child {
   margin: 0.1rem 0px;
 }
 #taskList div input[type="text"] {

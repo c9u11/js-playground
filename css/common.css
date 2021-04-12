@@ -1,5 +1,6 @@
 /* elements */
-* {box-sizing: border-box;}
+* { box-sizing: border-box; user-select: none;}
+*:focus{ outline: 0;}
 ul {list-style-type: none;}
 body {
   font-family: Verdana, sans-serif;
@@ -34,15 +35,47 @@ body {
   text-align: right;
 }
 
+/* transition */
+.lightsky,
+.sky,
+.blue,
+.white,
+.lightgray,
+.gray,
+.darkgray,
+.black{
+  transition: color 0.3s;
+}
+.bg-lightsky,
+.bg-sky,
+.bg-blue,
+.bg-white,
+.bg-lightgray,
+.bg-gray,
+.bg-darkgray,
+.bg-black{
+  transition: background-color 0.3s;
+}
+.after-lightsky,
+.after-sky,
+.after-blue,
+.after-white,
+.after-lightgray,
+.after-gray,
+.after-darkgray,
+.after-black{
+  transition: background-color 0.3s;
+}
+
 /* color */
 .lightsky {
-  color: #9cdcfa !important; 
+  color: #9cdcfa !important;
 }
 .sky {
   color: #beebfd !important; 
 }
 .blue {
-  color: #3498db !important; 
+  color: #3498db !important;
 }
 .white {
   color: #f8f8f7 !important; 

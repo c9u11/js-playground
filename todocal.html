@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="css/calendar.css">
 </head>
 
-<body class="bg-white w100 h100 m0">
+<body class="w100 h100 m0">
 
-  <div id="header" class="">
+  <div id="header">
+    <button>Log Out</button>
   </div> 
 
   <div id="content">
@@ -18,24 +19,24 @@
       <div class="month">      
         <ul>
           <li class="prev">&#10094;</li>
-          <li class="next">&#10095;</li>
-          <li>
+          <li class="info">
             <span id="month"></span>
             <br>
             <span id="year"></span>
           </li>
+          <li class="next">&#10095;</li>
         </ul>
       </div>
       <ul id="weekdays"></ul>
       <ul id="days"></ul>
     </div>
-    <div id="task">
+    <div id="task" class="">
       <div id="taskHeader" class="white">
         <span>TASK</span>
         <span id="taskState">
-          <span class="past-state">1</span>
-          <span class="todo-state">2</span>
-          <span class="done-state">3</span>
+          <span class="past-state">Past</span>
+          <span class="todo-state">Todo</span>
+          <span class="done-state">Done</span>
         </span>
       </div>
       <div id="taskList"></div>

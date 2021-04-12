@@ -4,7 +4,7 @@
 var currentDate = new Date();
 currentDate.setHours(0,0,0,0);
 var settingDay = 0;
-var settingColor = "blue";
+var settingColor = "black";
 var COLORS = ['lightsky','sky','blue','lightgray','gray','darkgray','white','black'];
 var selectedDate = currentDate;
 var taskList = {};
@@ -80,6 +80,7 @@ refreshCalendar();
 // Event
 document.getElementsByClassName("month")[0].onclick = function(event){
   var target = event.target.id || event.target.classList[0] || event.target.innerText;
+  var currentMonth;
   switch(target){
     case "prev":
       currentMonth = currentDate.getMonth();
@@ -225,11 +226,11 @@ function addTask(value="", state=""){
     title : value
   }
   
-  $task.innerHTML = `<input type="checkbox"><input type="text" value="${value}" state="${state}" index="${index}" placeholder=""><div class="rm_btn"></div>`;
+  $task.innerHTML = `<div><input type="checkbox"></div><input type="text" value="${value}" state="${state}" index="${index}" placeholder=""><div class="rm_btn"></div>`;
   $taskList.appendChild($task);
-  $task.children[0].addEventListener("click",function(){
-    if(this.checked) this.parentElement.classList.add("checked");
-    else this.parentElement.classList.remove("checked");
+  $task.children[0].children[0].addEventListener("click",function(){
+    if(this.checked) this.parentElement.parentElement.classList.add("checked");
+    else this.parentElement.parentElement.classList.remove("checked");
   });
   $task.children[1].addEventListener("blur",function(){
     if(this.value == null || this.value == ""){

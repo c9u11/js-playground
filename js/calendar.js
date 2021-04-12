@@ -122,8 +122,8 @@ document.getElementById("days").onclick = function(event){
   target.classList.add("selected");
   selectedDate = new Date(target.getAttribute("value") * 1);
   refreshColor();
-
-  refreshTask();
+  putTask();
+  // refreshTask();
 };
 document.getElementById("logout").onclick = logOut;
 document.getElementById("logout").onmouseover = function(){this.classList.add(`white`,`bg-${settingColor}`)};
@@ -247,17 +247,17 @@ function refreshTask(date = selectedDate){
   $taskList.innerHTML = "";
   getTask(date, date, function(){
     taskList.forEach(function(task){
-      if(task.title.replace(/" "/gi,"") == ""){
-        // removeTask();
-      } 
-      else {
-        addTask(task.ID, task.title, task.status);
-      }
+      // if(task.title.replace(/" "/gi,"") == ""){
+      //   // removeTask();
+      // } 
+      // else {
+        addTaskElement(task.ID, task.title, task.status);
+      // }
     })
   });
 }
 
-function addTask(id, value="", state){
+function addTaskElement(id, value="", state){
   if(id === undefined || state === undefined){
     return
   }
@@ -271,14 +271,19 @@ function addTask(id, value="", state){
   $task.children[0].children[0].addEventListener("click",function(){
     if(this.checked) this.parentElement.parentElement.classList.add("checked");
     else this.parentElement.parentElement.classList.remove("checked");
-    patchTask(id);
+    var data = {
+      "status": (this.checked) ? "done" : ((new Date()).setHours(0,0,0,0)>selectedDate.getTime()) ? "past" : "todo"
+    }
+    patchTask(id,data);
   });
   $task.children[2].addEventListener("click",function(){
     removeTask(id);
+    $task.remove();
   })
   $task.children[1].addEventListener("blur",function(){
     if(this.value === null || this.value.replace(/" "/gi,"") === ""){
       removeTask(id);
+      $task.remove();
     }
   })
   $task.children[1].addEventListener("change",function(){
@@ -304,7 +309,7 @@ function getTask(fromdate, todate, func){
   getTaskHttp.send();
 }
 
-function putTask(title, status){
+function putTask(title=""){
   var putTaskHttp = new XMLHttpRequest();
   var data = {
     "version": "1.0",
@@ -313,8 +318,8 @@ function putTask(title, status){
           "startdate": selectedDate.toYYYYMMDDHHMISS(),
           "enddate": selectedDate.toYYYYMMDDHHMISS(),
           "title": title,
-          "status": status
-          // "status": (selectedDate.getTime() < new Date().setHours(0,0,0,0)) ? "past" : "todo"
+          // "status": status
+          "status": (selectedDate.getTime() < new Date().setHours(0,0,0,0)) ? "past" : "todo"
       }
     ]
   };
@@ -334,26 +339,28 @@ function removeTask(id){
   removeHttp.setRequestHeader("Authorization","Bearer " + token);
   removeHttp.setRequestHeader("content-type","application/json");
   removeHttp.onload = function(){
-    refreshTask();
+    // refreshTask();
   };
   removeHttp.send(`{"version": "1.0","todolist": [{ "id" : ${id}}]}`);
 }
 function patchTask(id,data){
-  var data = {
+  var json = {
     "version" : "1.0",
     "todolist" : [
       {
         "ID" : id,
-        "title" : data.title
       }
     ]
   }
+  if(data.title !== undefined) json.todolist[0].title = data.title;
+  if(data.status !== undefined) json.todolist[0].status = data.status;
+
   var patchHttp = new XMLHttpRequest();
   patchHttp.open("PATCH",`http://${Server}/todo`,true);
   patchHttp.onload = function(){
-    refreshTask();
+    // refreshTask();
   }
   patchHttp.setRequestHeader("Authorization","Bearer " + token);
   patchHttp.setRequestHeader("content-type","application/json");
-  patchHttp.send(JSON.stringify(data));
+  patchHttp.send(JSON.stringify(json));
 }

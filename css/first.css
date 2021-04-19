@@ -1,0 +1,17 @@
+#content {
+}
+
+#pop_cat {
+  display: inline-block;
+  border: 1px red solid;
+}
+
+#attendance {
+  display: inline-block;
+  border: 1px red solid;
+}
+
+#list {
+  display: inline-block;
+  border: 1px red solid;
+}

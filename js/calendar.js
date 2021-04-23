@@ -88,6 +88,7 @@ Date.prototype.toYYYYMMDDHHMISS = function(){
   }
 }
 
+
 // Init
 checkSession();
 refreshCalendar();
@@ -202,6 +203,7 @@ function refreshCalendar(newDate = new Date(currentDate.getTime())) {
   }
 }
 function refreshColor(color = settingColor){
+  settingColor = color;
   // Elements
   var $calHeader = document.getElementsByClassName("month")[0];
   var $today = document.getElementsByClassName("today")[0];

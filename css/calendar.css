@@ -40,23 +40,41 @@
 
 /* header */
 #header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
   height: 30px;
 }
 
+#header > *:not(#logout) {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  padding: 0px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
 #logout {
+  width: fit-content;
+  height: 100%;
   cursor: pointer;
   float: right;
   border: none;
-  height: 100%;
   font-size: 0.7rem;
   transition: all 0.3s;
   color: black;
   background-color: white;
+  padding: 0px 10px;
+  margin-left: 5px;
 }
 
 /* Month */
 .month {
-  padding: 25px 25px;
+  padding: 25px;
   width: 100%;
   text-align: center;
   border-bottom: #ddd 2px solid;
@@ -115,7 +133,7 @@
   margin: 0;
 }
 #days li {
-  position: relative;
+  /* position: relative; */
   list-style-type: none;
   display: inline-block;
   min-width: 14%;
@@ -222,7 +240,7 @@
 }
 #taskList > div {
   display: flex;
-  position: relative;
+  /* position: relative; */
   margin: 0.3rem;
   margin-right: 0px;
   align-items: stretch;
@@ -233,6 +251,7 @@
 }
 #taskList div input[type="text"] {
   flex-grow: 1;
+  width: 0px;
   margin: 0px 10px;
   border: none;
   background: none;

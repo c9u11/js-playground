@@ -10,3 +10,6 @@ https://nomadcoders.co/javascript-for-beginners?gclid=Cj0KCQiAkNiMBhCxARIsAIDDKN
 
 0. README 추가
    - 기본적인 프로젝트 개요 작성
+1. HTML, CSS, JS 추가
+   - 각 파일의 연결구조 파악
+   - 브라우저가 어떻게 작동이 되는지 이해

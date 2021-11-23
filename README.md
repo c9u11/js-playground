@@ -13,3 +13,7 @@ https://nomadcoders.co/javascript-for-beginners?gclid=Cj0KCQiAkNiMBhCxARIsAIDDKN
 1. HTML, CSS, JS 추가
    - 각 파일의 연결구조 파악
    - 브라우저가 어떻게 작동이 되는지 이해
+
+2. Greeting User 기능 추가
+   - 기본적인 JS 문법 및 기능을 공부 한 뒤 Username을 입력하고 기억하는 기능 개발
+   - variable, function, 이벤트, localstorage 등에 대해서 이해

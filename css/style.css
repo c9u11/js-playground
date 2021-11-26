@@ -1,3 +1,138 @@
 .hidden {
   display: none;
 }
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+}
+
+body > *:not(script, img) {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+#clock {
+  margin: 0px;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -100%);
+  font-size: 430%;
+  text-shadow: 3px 2px 7px rgb(0 0 0 / 80%), 1px 1px 8px rgb(20 20 20 / 80%);
+}
+
+#login-form, #greeting {
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, 0);
+  font-size: 200%;
+  flex-direction: row;
+}
+
+#login-form {
+  order: 0;
+  border-bottom: 2px solid transparent;
+  box-shadow: 0 8px 6px -6px rgb(20 20 20 / 40%);
+  border-color: rgba(245, 246, 247, 0.7);
+}
+#login-form input{
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  text-shadow: rgb(0 0 0) 1px 1px 5px;
+}
+
+#login-form input::placeholder{
+  color: white;
+  text-shadow: rgb(0 0 0) 1px 1px 5px;
+  border-bottom: white 1px solid;
+}
+
+#greeting {
+  text-shadow: 3px 2px 7px rgb(0 0 0 / 80%), 1px 1px 8px rgb(20 20 20 / 80%);
+  margin: 0;
+  padding: 0;
+}
+
+#quote {
+  inset: 100% auto auto 0px;
+  transform: translate(0px, -100%);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: rgb(16 16 16 / 40%) 4px 2px 12px;
+  text-shadow: rgb(80 80 80) 0px 0px 10px;
+}
+
+#quote span {
+  color: white;
+}
+
+#weather {
+  inset: 100% auto auto 100%;
+  transform: translate(-100%, -100%);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: rgb(16 16 16 / 40%) 4px 2px 12px;
+  text-shadow: rgb(80 80 80) 0px 0px 10px;
+}
+
+#weather {
+  color: white;
+}
+
+#todo {
+  align-items: baseline;
+  padding-left: 40px;
+}
+
+#todo-form {
+  padding: 0;
+  border-bottom: 2px solid rgba(245, 246, 247, 0.7);
+  box-shadow: 0 8px 6px -6px rgb(20 20 20 / 40%);
+}
+#todo-form input{
+  color: white;
+  width: 180px;
+  outline: none;
+  border: none;
+  background: none;
+}
+#todo-list{
+  padding-left: 0px;
+}
+#todo-list li{
+  margin: 5px 0px;
+}
+#todo-list li::marker{
+  content: " ";
+}
+#todo-list li > * {
+  margin: 0px 5px;
+}
+#todo-list li button {
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+#todo-list li span {
+  text-shadow: rgb(80 80 80) 0px 0px 10px;
+}

@@ -1,0 +1,11 @@
+body {
+  margin: 0px;
+  background: content-box radial-gradient(rgb(32, 34, 47), rgb(17, 19, 27));
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  margin: 64px 0px;
+  width: 100%;
+}

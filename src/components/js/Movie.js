@@ -13,7 +13,7 @@ function Movie({ id, coverImage, title, year, summary, genres }) {
           </Link>
         </h2>
         <p className="movie-summary">
-          {summary.length > 150 ? `${summary.slice(0, 150)}...` : summary}
+          {summary.length > 50 ? `${summary.slice(0, 50)}...` : summary}
         </p>
         <ul className="movie-genres">
           {genres.map((g) => (

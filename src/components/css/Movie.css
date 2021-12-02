@@ -10,18 +10,18 @@ div.movie {
   display: flex;
   flex-direction: column;
   position: relative;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
-  border-radius: 5px;
+  -webkit-box-shadow: 0.5rem 0.5rem 1.5rem 0.5rem #000000;
+  box-shadow: 0.5rem 0.5rem 1.5rem 0.5rem #000000;
+  border-radius: 0.5rem;
   flex: 0 1 26%;
-  margin: 16px 0px;
-  border: 5px transparent solid;
+  margin: 1.6rem 0rem;
+  border: 0.5rem transparent solid;
   overflow-y: hidden;
   transition: border 0.5s;
 }
 
 div.movie:hover {
-  border: 5px white solid;
+  border: 0.5rem white solid;
   transition: border 0.5s;
 }
 
@@ -32,13 +32,14 @@ div.movie:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 0px 16px;
-  width: clac(100% - 32px);
+  padding: 0rem 1rem;
+  width: calc(100% - 2rem);
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0;
   transition: opacity 0.5s;
+  overflow-x: hidden;
 }
 
 .movie-info:hover {
@@ -47,13 +48,17 @@ div.movie:hover {
 }
 
 .movie-info > * {
-  margin: 0px;
+  margin: 0rem;
 }
 
+.movie-info * {
+  font-size: 0.8rem;
+}
 .movie-title a:link,
 .movie-title a:visited {
   color: white;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 .movie-title a:hover {
@@ -61,16 +66,21 @@ div.movie:hover {
 }
 
 .movie-genres {
-  display: flex;
-  padding: 0px;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: start;
+  display: none;
 }
-.movie-genres > li {
-  border: 1px skyblue solid;
-  width: fit-content;
-  padding: 6px;
-  margin: 6px;
-  border-radius: 5px;
+@media (min-width: 640px) {
+  .movie-genres {
+    display: flex;
+    padding: 0rem;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: start;
+  }
+  .movie-genres > li {
+    border: 0.1rem skyblue solid;
+    width: fit-content;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    border-radius: 0.5rem;
+  }
 }

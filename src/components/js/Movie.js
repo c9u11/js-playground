@@ -2,9 +2,9 @@ import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 import "../css/Movie.css";
 
-function Movie({ id, coverImage, title, year, summary, genres }) {
+function Movie({ id, coverImage, title, year, summary, genres, onload }) {
   return (
-    <div className="movie">
+    <div className="movie" onLoad={onload}>
       <img src={coverImage} alt={title} />
       <div className="movie-info">
         <h2 className="movie-title">

@@ -9,9 +9,10 @@ body {
 }
 
 #root {
-  margin: 6.4rem 0px;
+  margin: 0px;
   width: 100%;
   max-width: 1024px;
+  overflow-x: hidden;
 }
 
 html {

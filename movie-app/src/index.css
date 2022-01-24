@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  background: content-box radial-gradient(rgb(32, 34, 47), rgb(17, 19, 27));
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  margin: 0px;
+  width: 100%;
+  max-width: 1024px;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+  /* Prevent font scaling in landscape */
+  -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+  -moz-text-size-adjust: none; /*Firefox*/
+  -ms-text-size-adjust: none; /*Ie*/
+  -o-text-size-adjust: none; /*old versions of Opera*/
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,32 @@
+header {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  background-color: silver;
+}
+section {
+  display: flex;
+  width: 100vw;
+  height: auto;
+}
+
+nav {
+  padding: 10px;
+  background: lightsteelblue;
+}
+
+article {
+  width: 69%;
+  padding: 100px;
+}
+
+article img {
+  width: 100px;
+  height: 100px;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  background: silver;
+}

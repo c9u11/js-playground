@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>TodoCal - Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div id="content">
+		<div class="flex-box">
+			<div class="login-box">
+				<form class="login-form">
+					<span class="login-form-title">
+						Sign In
+					</span>
+
+					<div class="input-wrap">
+						<input type="text" name="username" placeholder="Username">
+					</div>
+
+					<div class="input-wrap">
+						<input type="password" name="pass" placeholder="Password">
+					</div>
+
+					<!-- <div class="text-right find-info">
+						<span>
+							Forgot
+						</span>
+						<a href="#">
+							Username / Password?
+						</a>
+					</div> -->
+
+					<button class="login-btn">
+						Sign in
+					</button>
+
+					<div class="text-center sign-up">
+						<span class="">
+							Don’t have an account?
+						</span>
+						<br>
+						<a href="#">
+							SIGN UP
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// input validate
+		var usernameDIV = document.querySelector("input[name='username']");
+		usernameDIV.addEventListener("input", validate);
+		var passwordDIV = document.querySelector("input[name='pass']");
+		passwordDIV.addEventListener("input", validate);
+		function validate(e) {
+			var value = e.target.value
+			this.value = value.replace(/[^A-Za-z0-9]/ig, '')
+		}
+
+		// login check
+		var username = location.search.split("username=")[1].split("&")[0];
+		var password = location.search.split("pass=")[1].split("&")[0];
+		var auth = sessionStorage.getItem("auth");
+		if (auth) {
+			console.log(auth);
+			location.href = "todocal.html"
+		}
+		if (username && password) {
+			var userData = new FormData();
+			userData.append("userid", username);
+			userData.append("password", password);
+
+			var loginHttp = new XMLHttpRequest();
+			loginHttp.open("POST", "http://" + "1.255.134.177:1323" + "/login", true);
+			loginHttp.onload = function () {
+				if(loginHttp.status == 200){
+					var response = JSON.parse(loginHttp.response);
+					sessionStorage.setItem("auth",response.token);
+					location.href = "todocal.html"
+				}
+				else {
+					switch (loginHttp.status) {
+						case 401 : 
+							console.log("auth error");
+							break;
+						default :
+							console.log("error");
+					}
+				}
+			};
+			loginHttp.send(userData);
+		}
+	</script>
+</body>
+
+</html>

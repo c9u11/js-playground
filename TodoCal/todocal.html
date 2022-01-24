@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Todo Calendar</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body class="w100 h100 m0">
+
+  <div id="header">
+    <button onclick="refreshColor('lightsky')" id="lightskyPicker" class="bg-lightsky"></button>
+    <button onclick="refreshColor('sky')" id="skyPicker" class="bg-sky"></button>
+    <button onclick="refreshColor('blue')" id="bluePicker" class="bg-blue"></button>
+    <button onclick="refreshColor('lightgray')" id="lightgrayPicker" class="bg-lightgray"></button>
+    <button onclick="refreshColor('gray')" id="grayPicker" class="bg-gray"></button>
+    <button onclick="refreshColor('darkgray')" id="darkgrayPicker" class="bg-darkgray"></button>
+    <button onclick="refreshColor('black')" id="blackPicker" class="bg-black"></button>
+    <button id="logout">Log Out</button>
+  </div> 
+
+  <div id="content">
+    <div id="calendar">
+      <div class="month">      
+        <ul>
+          <li class="prev">&#10094;</li>
+          <li class="info">
+            <span id="month"></span>
+            <br>
+            <span id="year"></span>
+          </li>
+          <li class="next">&#10095;</li>
+        </ul>
+      </div>
+      <ul id="weekdays"></ul>
+      <ul id="days"></ul>
+    </div>
+    <div id="task" class="">
+      <div id="taskHeader" class="white">
+        <span>TASK</span>
+        <span id="taskState">
+          <span class="past-state">Past</span>
+          <span class="todo-state">Todo</span>
+          <span class="done-state">Done</span>
+        </span>
+      </div>
+      <div id="taskList"></div>
+    </div>
+  </div>
+
+  <script src="js/calendar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+/* Content, Calendar, Task Size 반응형 */
+@media (min-width: 721px) {
+  #content {
+    display: flex;
+  }
+  #calendar {
+    width: 66vw;
+    max-width: 860px;
+  }
+  #task {
+    flex-grow: 1;
+    /* border-left: #ddd 2px solid; */
+    min-width: 33vw;
+  }
+}
+@media (max-width: 720px) {
+  #content {
+    display: inline-block;
+  }
+  #calendar {
+    width: 100vw;
+    min-width: 360px;
+  }
+  #task {
+    width: 100vw;
+    border-top: #ddd 2px solid;
+  }
+}
+#calendar {
+  display: inline-block;
+}
+#calendar {
+  user-select: none;
+  border-right: #ddd 2px solid;
+}
+#task {
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+}
+
+#header > *:not(#logout) {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  padding: 0px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+#logout {
+  width: fit-content;
+  height: 100%;
+  cursor: pointer;
+  float: right;
+  border: none;
+  font-size: 0.7rem;
+  transition: all 0.3s;
+  color: black;
+  background-color: white;
+  padding: 0px 10px;
+  margin-left: 5px;
+}
+
+/* Month */
+.month {
+  padding: 25px;
+  width: 100%;
+  text-align: center;
+  border-bottom: #ddd 2px solid;
+}
+.month ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.month ul li {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0px 10px;
+}
+.month .info {
+  flex-grow: 1;
+}
+.month .prev,
+.month .next {
+  cursor: pointer;
+  transition: font-size 0.3s;
+}
+.month ul li.prev:hover,
+.month ul li.next:hover {
+  font-size: 2rem;
+}
+.month #month {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.month #year {
+  font-size: 0.9rem;
+}
+
+/* Week */
+#weekdays {
+  display: flex;
+  margin: 0;
+  padding: 20px 0px;
+}
+#weekdays li {
+  display: inline-block;
+  width: 14%;
+  font-size: 1rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Day */
+#days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  margin: 0;
+}
+#days li {
+  /* position: relative; */
+  list-style-type: none;
+  display: inline-block;
+  min-width: 14%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 20px 0px;
+  color: #888;
+  cursor: pointer;
+}
+#days li span {
+  position: relative;
+}
+#days li .weekend {
+  color: rgb(255, 74, 74);
+}
+#days li .diff {
+  opacity: 0.5;
+}
+#days li .today {
+  font-weight: bold;
+}
+#days li .selected {
+  color: white !important;
+}
+#days li span:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 50%;
+}
+#days li .selected:after {
+  transition: background-color 0.3s;
+}
+#days li .selected.weekend:after {
+  background-color: rgba(255, 74, 74, 0.5) !important;
+}
+
+/* Task Header */
+#taskHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 25px 25px;
+  width: 100%;
+  height: 6.3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  vertical-align: middle;
+}
+#taskHeader > span:first-child {
+  font-size: 1.5rem;
+}
+/* Task state */
+#taskState {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 0.3rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#taskState span {
+  font-size: 0.5rem;
+  color: rgb(24, 24, 24);
+}
+.past-state:before,
+.todo-state:before,
+.done-state:before {
+  content: " ";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  margin-right: 3px;
+  /* border: 1px black solid; */
+}
+.past-state:before {
+  background-color: rgb(221, 106, 106);
+}
+
+.todo-state:before {
+  background-color: rgb(120, 199, 82);
+}
+
+.done-state:before {
+  background-color: rgb(192, 189, 209);
+}
+
+/* Tasks */
+#taskList {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+#taskList > div {
+  display: flex;
+  /* position: relative; */
+  margin: 0.3rem;
+  margin-right: 0px;
+  align-items: stretch;
+  border-bottom: 1px #ddd solid;
+}
+#taskList > div > div:first-child {
+  margin: 0.1rem 0px;
+}
+#taskList div input[type="text"] {
+  flex-grow: 1;
+  width: 0px;
+  margin: 0px 10px;
+  border: none;
+  background: none;
+}
+#taskList div.checked input[type="text"] {
+  text-decoration: line-through;
+}
+#taskList div div.rm_btn {
+  display: flex;
+  width: 0px;
+  margin: 0px;
+  background-color: red;
+  opacity: 0.6;
+  transition: width 0.3s;
+}
+#taskList div:hover div.rm_btn {
+  width: 1.5rem;
+}

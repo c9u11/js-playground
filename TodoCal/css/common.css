@@ -1,0 +1,146 @@
+/* elements */
+* { box-sizing: border-box; user-select: none;}
+*:focus{ outline: 0;}
+ul {list-style-type: none;}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0px;
+}
+
+/* size */
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.m0 {
+  margin: 0px;
+}
+
+/* font size */
+* { font-size: 1rem; }
+@media (max-width:360px){html{font-size:15px;}}
+@media (min-width:460px) and (max-width:559px){html{font-size:16px;}}
+@media (min-width:560px) and (max-width:659px){html{font-size:17px;}}
+@media (min-width:660px) and (max-width:759px){html{font-size:18px;}}
+@media (min-width:760px) and (max-width:859px){html{font-size:19px;}}
+@media (min-width:860px){html{font-size:20px;}}
+
+/* text align */
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+/* transition */
+.lightsky,
+.sky,
+.blue,
+.white,
+.lightgray,
+.gray,
+.darkgray,
+.black{
+  transition: color 0.3s;
+}
+.bg-lightsky,
+.bg-sky,
+.bg-blue,
+.bg-white,
+.bg-lightgray,
+.bg-gray,
+.bg-darkgray,
+.bg-black{
+  transition: background-color 0.3s;
+}
+.after-lightsky,
+.after-sky,
+.after-blue,
+.after-white,
+.after-lightgray,
+.after-gray,
+.after-darkgray,
+.after-black{
+  transition: background-color 0.3s;
+}
+
+/* color */
+.lightsky {
+  color: #9cdcfa !important;
+}
+.sky {
+  color: #beebfd !important; 
+}
+.blue {
+  color: #3498db !important;
+}
+.white {
+  color: #f8f8f7 !important; 
+}
+.lightgray {
+  color: #bdc3c7 !important; 
+}
+.gray {
+  color: #95a5a6 !important; 
+}
+.darkgray {
+  color: #7f8c8d !important; 
+}
+.black {
+  color: #000000 !important; 
+}
+
+/* background color */
+.bg-lightsky {
+  background-color: #9cdcfa !important; 
+}
+.bg-sky {
+  background-color: #beebfd !important; 
+}
+.bg-blue {
+  background-color: #3498db !important; 
+}
+.bg-white {
+  background-color: #f8f8f7 !important; 
+}
+.bg-lightgray {
+  background-color: #bdc3c7 !important; 
+}
+.bg-gray {
+  background-color: #95a5a6 !important; 
+}
+.bg-darkgray {
+  background-color: #7f8c8d !important; 
+}
+.bg-black {
+  background-color: #000000 !important; 
+}
+
+/* after color */
+.after-lightsky:after {
+  background-color: #9cdcfa !important; 
+}
+.after-sky:after {
+  background-color: #beebfd !important; 
+}
+.after-blue:after {
+  background-color: #3498db !important; 
+}
+.after-white:after {
+  background-color: #f8f8f7 !important; 
+}
+.after-lightgray:after {
+  background-color: #bdc3c7 !important; 
+}
+.after-gray:after {
+  background-color: #95a5a6 !important; 
+}
+.after-darkgray:after {
+  background-color: #7f8c8d !important; 
+}
+.after-black:after {
+  background-color: #000000 !important; 
+}
